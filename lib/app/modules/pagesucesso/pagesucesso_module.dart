@@ -10,6 +10,9 @@ class PagesucessoModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => const PagesucessoPage()),
+    ChildRoute('/',
+        child: (_, args) => PagesucessoPage(cepModel: args.data),
+        transition: TransitionType.upToDown,
+        duration: const Duration(seconds: 1)),
   ];
 }

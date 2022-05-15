@@ -1,6 +1,8 @@
 import 'package:desafio/app/services/models/cep_model.dart';
+import 'package:desafio/app/services/models/cep_model_erro.dart';
 import 'package:desafio/app/services/repository/cep_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 part 'pesquisa_store.g.dart';
@@ -15,24 +17,22 @@ abstract class _PesquisaStoreBase with Store {
   bool animated = false;
 
   @observable
-  late ObservableFuture<CepModel?> cepModel;
+  CepModel? cepModel = CepModel();
 
-  @action
-  Future buscarCepRepository() => cepModel =
-      ObservableFuture(CepRepository().buscarCep(cepController.text));
+  @observable
+  CepModelErro? cepModelErro = CepModelErro();
 
   @action
   Future pesquisaCep() async {
     animated = true;
-
-    await buscarCepRepository();
-
-    if (cepModel.status == FutureStatus.fulfilled) {
-      print(cepModel.value?.location.coordinates.latitude);
+    await CepRepository().buscarCep(cepController.text);
+    if (cepModel?.cep != 'erro') {
+      Modular.to.pushReplacementNamed('/sucesso/', arguments: cepModel);
+    } else {
+      Modular.to.pushReplacementNamed(
+        '/erro/${cepController.text}',
+      );
     }
     animated = false;
   }
-
-  @action
-  erroPage() {}
 }

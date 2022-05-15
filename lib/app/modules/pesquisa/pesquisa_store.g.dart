@@ -45,15 +45,31 @@ mixin _$PesquisaStore on _PesquisaStoreBase, Store {
       Atom(name: '_PesquisaStoreBase.cepModel', context: context);
 
   @override
-  ObservableFuture<CepModel?> get cepModel {
+  CepModel? get cepModel {
     _$cepModelAtom.reportRead();
     return super.cepModel;
   }
 
   @override
-  set cepModel(ObservableFuture<CepModel?> value) {
+  set cepModel(CepModel? value) {
     _$cepModelAtom.reportWrite(value, super.cepModel, () {
       super.cepModel = value;
+    });
+  }
+
+  late final _$cepModelErroAtom =
+      Atom(name: '_PesquisaStoreBase.cepModelErro', context: context);
+
+  @override
+  CepModelErro? get cepModelErro {
+    _$cepModelErroAtom.reportRead();
+    return super.cepModelErro;
+  }
+
+  @override
+  set cepModelErro(CepModelErro? value) {
+    _$cepModelErroAtom.reportWrite(value, super.cepModelErro, () {
+      super.cepModelErro = value;
     });
   }
 
@@ -65,37 +81,13 @@ mixin _$PesquisaStore on _PesquisaStoreBase, Store {
     return _$pesquisaCepAsyncAction.run(() => super.pesquisaCep());
   }
 
-  late final _$_PesquisaStoreBaseActionController =
-      ActionController(name: '_PesquisaStoreBase', context: context);
-
-  @override
-  Future<dynamic> buscarCepRepository() {
-    final _$actionInfo = _$_PesquisaStoreBaseActionController.startAction(
-        name: '_PesquisaStoreBase.buscarCepRepository');
-    try {
-      return super.buscarCepRepository();
-    } finally {
-      _$_PesquisaStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic erroPage() {
-    final _$actionInfo = _$_PesquisaStoreBaseActionController.startAction(
-        name: '_PesquisaStoreBase.erroPage');
-    try {
-      return super.erroPage();
-    } finally {
-      _$_PesquisaStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
   @override
   String toString() {
     return '''
 cepController: ${cepController},
 animated: ${animated},
-cepModel: ${cepModel}
+cepModel: ${cepModel},
+cepModelErro: ${cepModelErro}
     ''';
   }
 }

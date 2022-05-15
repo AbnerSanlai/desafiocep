@@ -10,6 +10,9 @@ class PageerrorModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => const PageerrorPage()),
+    ChildRoute('/:cep',
+        child: (_, args) => PageerrorPage(cep: args.params["cep"]),
+        transition: TransitionType.upToDown,
+        duration: const Duration(seconds: 1)),
   ];
 }

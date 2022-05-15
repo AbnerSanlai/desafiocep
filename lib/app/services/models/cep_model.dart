@@ -1,18 +1,10 @@
 class CepModel {
-  CepModel({
-    required this.cep,
-    required this.state,
-    required this.city,
-    required this.neighborhood,
-    required this.street,
-    required this.service,
-    required this.location,
-  });
+  CepModel();
   late final String cep;
   late final String state;
   late final String city;
-  late final String neighborhood;
-  late final String street;
+  late final String? neighborhood;
+  late final String? street;
   late final String service;
   late final Location location;
 
@@ -20,8 +12,17 @@ class CepModel {
     cep = json['cep'];
     state = json['state'];
     city = json['city'];
-    neighborhood = json['neighborhood'];
-    street = json['street'];
+
+    if (json['neighborhood'] == null) {
+      neighborhood = "Não Localizado";
+    } else {
+      neighborhood = json['neighborhood'];
+    }
+    if (json['street'] == null) {
+      street = " não Localizado";
+    } else {
+      street = json['street'];
+    }
     service = json['service'];
     location = Location.fromJson(json['location']);
   }
@@ -65,12 +66,17 @@ class Coordinates {
     required this.longitude,
     required this.latitude,
   });
-  late final String longitude;
-  late final String latitude;
+  late final String? longitude;
+  late final String? latitude;
 
   Coordinates.fromJson(Map<String, dynamic> json) {
-    longitude = json['longitude'];
-    latitude = json['latitude'];
+    if (json['longitude'] == null) {
+      longitude = "0";
+      latitude = "0";
+    } else {
+      longitude = json['longitude'];
+      latitude = json['latitude'];
+    }
   }
 
   Map<String, dynamic> toJson() {

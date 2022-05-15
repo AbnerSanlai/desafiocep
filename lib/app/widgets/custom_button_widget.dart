@@ -8,7 +8,10 @@ class CustomButtonWidget extends StatelessWidget {
   final VoidCallback onTap;
   final bool animation;
   const CustomButtonWidget(
-      {Key? key, this.title = "", required this.onTap, required this.animation})
+      {Key? key,
+      required this.title,
+      required this.onTap,
+      required this.animation})
       : super(key: key);
 
   @override
