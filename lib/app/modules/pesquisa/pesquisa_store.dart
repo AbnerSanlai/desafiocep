@@ -27,7 +27,7 @@ abstract class _PesquisaStoreBase with Store {
     animated = true;
     await CepRepository().buscarCep(cepController.text);
     if (cepModel?.cep != 'erro') {
-      Modular.to.pushReplacementNamed('/sucesso/', arguments: cepModel);
+      Modular.to.pushNamed('/sucesso/', arguments: cepModel);
     } else {
       Modular.to.pushReplacementNamed(
         '/erro/${cepController.text}',

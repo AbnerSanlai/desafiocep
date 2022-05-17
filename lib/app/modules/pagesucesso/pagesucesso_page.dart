@@ -40,7 +40,7 @@ class PagesucessoPageState extends State<PagesucessoPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextWidget(text: "Rua ${widget.cepModel.street}"),
+                  TextWidget(text: "${widget.cepModel.street}"),
                   TextWidget(text: "Bairro: ${widget.cepModel.neighborhood}"),
                   TextWidget(text: "Cidade: ${widget.cepModel.city}"),
                   TextWidget(text: "Estado: ${widget.cepModel.state}"),
@@ -54,8 +54,8 @@ class PagesucessoPageState extends State<PagesucessoPage> {
               height: sizeheight * 0.55,
               width: sizewidth * 0.9,
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.blueAccent),
-                  borderRadius: BorderRadius.circular(24)),
+                border: Border.all(color: Colors.blueAccent),
+              ),
               child: GoogleMap(
                 initialCameraPosition: CameraPosition(
                   target: LatLng(
@@ -64,7 +64,7 @@ class PagesucessoPageState extends State<PagesucessoPage> {
                     double.parse(
                         widget.cepModel.location.coordinates.longitude!),
                   ),
-                  zoom: 2,
+                  zoom: 18,
                 ),
               ),
             )
