@@ -18,7 +18,9 @@ A new Flutter project.
   modular
   mobx
   
+  
+ ## exemplo
   <p align="center"> 
-    <img width="460" height="300" src="desafiocep/assets/to_readme/exemplo.gif">
+    <img width="460" height="300" src="assets/to_readme/exemplo.gif">
   </p>
 
