@@ -1,9 +1,5 @@
 # desafio
 
-A new Flutter project.
-
-## Getting Started
-
 ## Sistema 
  Android
 ## Versão Flutter 3.0.0
@@ -21,6 +17,6 @@ A new Flutter project.
   
  ## exemplo
   <p align="center"> 
-    <img width="460" height="300" src="assets/to_readme/exemplo.gif">
+    <img width="760" height="500" src="assets/to_readme/exemplo.gif">
   </p>
 
