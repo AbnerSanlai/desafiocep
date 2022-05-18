@@ -4,6 +4,9 @@
  Android
 ## Versão Flutter 3.0.0
 
+## API 
+https://brasilapi.com.br/docs#tag/CEP-V2
+
 ## packages Usadas
   google_fonts: ^2.3.2
   http: ^0.13.4
