@@ -17,16 +17,17 @@ abstract class _PesquisaStoreBase with Store {
   bool animated = false;
 
   @observable
-  CepModel? cepModel = CepModel();
+  CepModel cepModel = CepModel();
 
   @observable
-  CepModelErro? cepModelErro = CepModelErro();
+  bool cepValido = false;
 
   @action
   Future pesquisaCep() async {
     animated = true;
     await CepRepository().buscarCep(cepController.text);
-    if (cepModel?.cep != 'erro') {
+    if (cepValido) {
+      cepController.clear();
       Modular.to.pushNamed('/sucesso/', arguments: cepModel);
     } else {
       Modular.to.pushReplacementNamed(

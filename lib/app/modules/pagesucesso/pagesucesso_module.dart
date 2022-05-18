@@ -12,7 +12,7 @@ class PagesucessoModule extends Module {
   final List<ModularRoute> routes = [
     ChildRoute('/',
         child: (_, args) => PagesucessoPage(cepModel: args.data),
-        transition: TransitionType.upToDown,
-        duration: const Duration(seconds: 1)),
+        transition: TransitionType.leftToRight,
+        duration: const Duration(seconds: 2)),
   ];
 }

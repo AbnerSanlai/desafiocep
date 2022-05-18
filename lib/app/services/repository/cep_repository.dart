@@ -1,6 +1,5 @@
 import 'package:desafio/app/modules/pesquisa/pesquisa_store.dart';
 import 'package:desafio/app/services/models/cep_model.dart';
-import 'package:desafio/app/services/models/cep_model_erro.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -15,13 +14,11 @@ class CepRepository {
         headers: headers);
 
     if (response.statusCode == 404) {
-      var responseCep = json.decode(response.body);
-      pesquisaStore.cepModelErro = CepModelErro.fromJson(responseCep);
-      pesquisaStore.cepModel?.cep = "erro";
+      pesquisaStore.cepValido = false;
     } else {
       var responseCep = json.decode(response.body);
       pesquisaStore.cepModel = CepModel.fromJson(responseCep);
-      print(response.statusCode);
+      pesquisaStore.cepValido = true;
     }
   }
 }

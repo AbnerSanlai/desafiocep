@@ -45,31 +45,31 @@ mixin _$PesquisaStore on _PesquisaStoreBase, Store {
       Atom(name: '_PesquisaStoreBase.cepModel', context: context);
 
   @override
-  CepModel? get cepModel {
+  CepModel get cepModel {
     _$cepModelAtom.reportRead();
     return super.cepModel;
   }
 
   @override
-  set cepModel(CepModel? value) {
+  set cepModel(CepModel value) {
     _$cepModelAtom.reportWrite(value, super.cepModel, () {
       super.cepModel = value;
     });
   }
 
-  late final _$cepModelErroAtom =
-      Atom(name: '_PesquisaStoreBase.cepModelErro', context: context);
+  late final _$cepValidoAtom =
+      Atom(name: '_PesquisaStoreBase.cepValido', context: context);
 
   @override
-  CepModelErro? get cepModelErro {
-    _$cepModelErroAtom.reportRead();
-    return super.cepModelErro;
+  bool get cepValido {
+    _$cepValidoAtom.reportRead();
+    return super.cepValido;
   }
 
   @override
-  set cepModelErro(CepModelErro? value) {
-    _$cepModelErroAtom.reportWrite(value, super.cepModelErro, () {
-      super.cepModelErro = value;
+  set cepValido(bool value) {
+    _$cepValidoAtom.reportWrite(value, super.cepValido, () {
+      super.cepValido = value;
     });
   }
 
@@ -87,7 +87,7 @@ mixin _$PesquisaStore on _PesquisaStoreBase, Store {
 cepController: ${cepController},
 animated: ${animated},
 cepModel: ${cepModel},
-cepModelErro: ${cepModelErro}
+cepValido: ${cepValido}
     ''';
   }
 }

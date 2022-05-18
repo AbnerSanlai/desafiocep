@@ -15,7 +15,7 @@ class PageerrorPage extends StatefulWidget {
 class PageerrorPageState extends State<PageerrorPage> {
   @override
   Widget build(BuildContext context) {
-    final PageerrorStore pageerrorStore = Modular.get();
+    final PageerrorStore pageErrorStore = Modular.get();
     return Scaffold(
       body: Center(
         child: Column(
@@ -43,7 +43,7 @@ class PageerrorPageState extends State<PageerrorPage> {
                   ),
                   const SizedBox(height: 20),
                   CustomButtonWidget(
-                    onTap: pageerrorStore.voltarPagePesquisa,
+                    onTap: pageErrorStore.voltarPagePesquisa,
                     animation: false,
                     title: 'Tentar Novamente',
                   )

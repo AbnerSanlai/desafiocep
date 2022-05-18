@@ -10,6 +10,9 @@ class PesquisaModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => const PesquisaPage()),
+    ChildRoute('/',
+        child: (_, args) => const PesquisaPage(),
+        transition: TransitionType.leftToRight,
+        duration: const Duration(seconds: 2)),
   ];
 }

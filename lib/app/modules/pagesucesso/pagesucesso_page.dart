@@ -27,7 +27,7 @@ class PagesucessoPageState extends State<PagesucessoPage> {
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           children: <Widget>[
             Container(
